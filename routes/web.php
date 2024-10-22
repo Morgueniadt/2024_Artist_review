@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,9 +12,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/album', [AlbumController::class, 'edit'])->name('album.edit');
+    Route::get('/album', [AlbumController::class, 'store'])->name('album.store');
+    Route::get('/album', [AlbumController::class, 'show'])->name('album.show');
+    Route::patch('/album', [AlbumController::class, 'update'])->name('album.update');
+    Route::delete('/album', [AlbumController::class, 'destroy'])->name('album.destroy');
 });
 
 require __DIR__.'/auth.php';

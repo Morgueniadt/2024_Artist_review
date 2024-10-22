@@ -72,3 +72,4 @@ return new class extends Migration
       /*  Schema::dropIfExists('genres');*/
     }
 };
+ /*commented out sections relate to CA2 */
