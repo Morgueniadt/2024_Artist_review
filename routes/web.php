@@ -18,6 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/album', [AlbumController::class, 'show'])->name('album.show');
     Route::patch('/album', [AlbumController::class, 'update'])->name('album.update');
     Route::delete('/album', [AlbumController::class, 'destroy'])->name('album.destroy');
+
+    Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
+
 });
 
 require __DIR__.'/auth.php';
