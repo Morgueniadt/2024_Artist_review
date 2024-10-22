@@ -12,10 +12,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
+    Route::get('/albums', [AlbumController::class, 'index'])->name('albums.index');
     Route::get('/album', [AlbumController::class, 'edit'])->name('album.edit');
-    Route::get('/album', [AlbumController::class, 'store'])->name('album.store');
-    Route::get('/album', [AlbumController::class, 'show'])->name('album.show');
+    // Route::get('/album', [AlbumController::class, 'store'])->name('album.store');
+    // Route::get('/album', [AlbumController::class, 'show'])->name('album.show');
     Route::patch('/album', [AlbumController::class, 'update'])->name('album.update');
     Route::delete('/album', [AlbumController::class, 'destroy'])->name('album.destroy');
 
