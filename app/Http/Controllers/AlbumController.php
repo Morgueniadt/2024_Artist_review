@@ -44,7 +44,8 @@ class AlbumController extends Controller
      */
     public function edit(Album $album)
     {
-        //
+        $albums = Album::all();//fetch all alubms
+        return view('albums.index', compact('albums'));// return the view with albums    
     }
 
     /**
