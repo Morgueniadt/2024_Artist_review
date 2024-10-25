@@ -15,15 +15,15 @@
 
                         <div class="grid grid-cols-1 gap-6">
                             <div>
-                                <label for="name" class="block font-medium text-gray-700">Album Name</label>
-                                <input type="text" id="name" name="name" value="{{ old('name', $album->name) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                                <label for="name" class="block font-medium text-gray-700">Album title</label>
+                                <input type="text" id="name" name="title" value="{{ old('title', $album->title) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
                             </div>
 
                             <div>
                                 <label for="image" class="block font-medium text-gray-700">Album Image</label>
                                 <input type="file" id="image" name="image" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                                 @if ($album->image)
-                                    <img src="{{ asset('images/books/' . $album->image) }}" alt="{{ $album->name }}" class="mt-2 w-32 h-32 object-cover">
+                                    <img src="{{ asset('images/albums/' . $album->image) }}" alt="{{ $album->title }}" class="mt-2 w-32 h-32 object-cover">
                                 @endif
                             </div>
 
