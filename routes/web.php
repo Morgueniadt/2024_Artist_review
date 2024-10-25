@@ -19,13 +19,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
 
     // Album Show
-    //Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
+      Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
     // Album Edit
     Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');
 
     // Album Store 
-    // Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
+    Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
 
     // Album Update
     Route::patch('/album/{album}', [AlbumController::class, 'update'])->name('album.update');
