@@ -21,7 +21,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        return view('albums.show')->with('album', $album);
+        return view('albums.show')->with('albums', $album);
     }
 
     /**

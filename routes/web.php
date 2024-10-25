@@ -21,6 +21,9 @@ Route::middleware('auth')->group(function () {
     // Album Show
       Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
+    // Album create
+      Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
+
     // Album Edit
     Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');
 
