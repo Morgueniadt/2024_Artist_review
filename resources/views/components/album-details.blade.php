@@ -20,7 +20,5 @@
     <h3 class="text-gray-800 font-semibold mb-2" style="font-size: 2rem;">Number of Songs</h3> <!-- Subheading for number of songs -->
     <p class="text-gray-700 leading-relaxed">{{ $number_of_songs }}</p> <!-- Text is spaced out for readability -->
 
-    <!-- Description -->
-    <h3 class="text-gray-800 font-semibold mb-2" style="font-size: 2rem;">Description</h3>
-    <p class="text-gray-700 leading-relaxed">{{ $description }}</p> <!-- Text is spaced out for readability -->
+    
 </div>
