@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-   use HasFactory;
+   
+use HasFactory;
+protected $fillable= [
+'title', 
+'duration',
+'number of songs',
+'year', 
+'image',
+'created_at',
+'updated_at',
+];
+
 }
