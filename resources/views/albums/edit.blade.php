@@ -39,8 +39,8 @@
 
                             <!-- Release Date Input -->
                             <div>
-                                <label for="release_date" class="block font-medium text-gray-700">Release Date</label>
-                                <input type="date" id="release_date" name="release_date" value="{{ old('release_date', $album->release_date) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                                <label for="release_year" class="block font-medium text-gray-700">Release Date</label>
+                                <input type="date" id="release_year" name="release_year" value="{{ old('release_year', $album->release_year) }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
                             </div>
 
                             <!-- Number of Songs Input -->

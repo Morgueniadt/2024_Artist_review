@@ -10,7 +10,7 @@ class Album extends Model
    
 use HasFactory;
 protected $fillable= [
-'title', 
+'name', 
 'duration',
 'number of songs',
 'year', 
