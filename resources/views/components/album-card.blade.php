@@ -1,4 +1,4 @@
-@props(['name', 'duration', 'release_date', 'number_of_songs', 'image'])
+@props(['title', 'duration', 'release_date', 'number_of_songs', 'image'])
 
 <div>
     <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300"> 
