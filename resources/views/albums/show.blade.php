@@ -11,10 +11,11 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">Album Details</h3>
                     <x-album-details
-                        :name="$album->name"
-                        :cover-image="$album->cover_image"  {{-- Adjust attribute name based on your model --}}
-                        :year="$album->year"                {{-- Assuming you have a year attribute --}}
-                        :description="$album->description"
+                        :title="$album->title"            {{-- Album title attribute --}}
+                        :cover-image="$album->image"      {{-- Adjusted to the correct attribute for the cover image --}}
+                        :year="$album->year"              {{-- Year of the album --}}
+                        :duration="$album->duration"      {{-- Duration of the album --}}
+                        :number-of-songs="$album->number_of_songs" {{-- Number of songs in the album --}}
                     />
                 </div>
             </div>
