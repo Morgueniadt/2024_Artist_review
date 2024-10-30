@@ -3,21 +3,20 @@
 use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Route;
 
-
 // Album Index
 Route::get('/album', [AlbumController::class, 'index'])->name('album.index');
 
 // Album Show
-  Route::get('/album/{album}/show', [AlbumController::class, 'show'])->name('album.show');
+Route::get('/album/{album}/show', [AlbumController::class, 'show'])->name('album.show');
 
-// Album create
-  Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
+// Album Create
+Route::get('/album/create', [AlbumController::class, 'create'])->name('album.create');
+
+// Album Store
+Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
 
 // Album Edit
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');
-
-// Album Store 
-Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
 
 // Album Update
 Route::patch('/album/{album}', [AlbumController::class, 'update'])->name('album.update');
@@ -37,11 +36,9 @@ Route::get('/dashboard', function () {
 
 // Grouped Routes requiring Authentication
 Route::middleware('auth')->group(function () {
-
-  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
 });
 
 // Load authentication routes
