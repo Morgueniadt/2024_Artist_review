@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 @props(['name', 'duration', 'release_year', 'number_of_songs', 'image'])
-=======
-@props(['name', 'duration', '$release_year', 'number_of_songs', 'image'])
->>>>>>> a71220dd7e4c92547d714fd381bab85e00711cac
-<!-- Album Details Component -->
+
+// Album Details Component
 <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto"> 
     <!-- Limit the overall container width -->
     
@@ -13,7 +10,11 @@
     
     <!-- Album Cover Image -->
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
-       
+        @if ($image)
+            <img src="{{ asset($image) }}" alt="Album Cover" class="max-w-full h-auto rounded-lg" />
+        @else
+            <p class="text-gray-500">No image available</p>
+        @endif
         <!-- Image is restricted to a smaller size -->
     </div>
     

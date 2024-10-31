@@ -23,14 +23,15 @@ return new class extends Migration
             $table->timestamps();
         });
 */
-        Schema::create('albums', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); // Correct type for name
-            $table->time('duration'); // Store duration properly
-            $table->year('release_year'); // Correct naming
-            $table->integer('number_of_songs'); // Correct naming
-            $table->timestamps();
-        });
+Schema::create('albums', function (Blueprint $table) {
+    $table->id();
+    $table->string('name'); // Correct type for name
+    $table->time('duration'); // Store duration properly
+    $table->year('release_year'); // Correct naming
+    $table->integer('number_of_songs'); // Correct naming
+    $table->string('image')->nullable(); // Add image column
+    $table->timestamps();
+});
 
         /*Schema::create('songs', function (Blueprint $table) {
             $table->id();

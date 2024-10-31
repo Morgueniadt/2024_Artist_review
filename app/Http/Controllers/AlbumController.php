@@ -28,41 +28,31 @@ class AlbumController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        // Validate input
+{
     $request->validate([
-        'title' => 'required|string|max:255', // Album title validation
-        'duration' => 'required|string|max:100', // Album duration validation
-        'year' => 'required|integer', // Album year validation
-        'number_of_songs' => 'required|integer|min:1', // Number of songs validation
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Image validation
+        'title' => 'required|string|max:255',
+        'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        'duration' => 'required|string',
+        'release_year' => 'required|date',
+        'number_of_songs' => 'required|integer',
     ]);
 
-    // Initialize image name variable
-    $imageName = null;
+    $album = new Album();
+    $album->title = $request->title;
+    $album->duration = $request->duration;
+    $album->release_year = $request->release_year;
+    $album->number_of_songs = $request->number_of_songs;
 
-    // Check if the image is uploaded and handle it
     if ($request->hasFile('image')) {
-        // Generate a unique name for the image
-        $imageName = time() . '.' . $request->image->extension();
-        // Move the uploaded image to the public directory
-        $request->image->move(public_path('images/albums'), $imageName);
+        $imagePath = $request->file('image')->store('albums', 'public');
+        $album->image = $imagePath;
     }
 
-    // Create an album record in the database
-    Album::create([
-        'title' => $request->title, // Store the album title
-        'duration' => $request->duration, // Store the album duration
-        'year' => $request->year, // Store the album year
-        'number_of_songs' => $request->number_of_songs, // Store the number of songs
-        'image' => $imageName, // Store the image filename in the DB
-        'created_at' => now(),
-        'updated_at' => now(),
-    ]);
+    $album->save();
 
-    // Redirect to the index page with a success message
-    return to_route('albums.index')->with('success', 'Album created successfully!');
-    }
+    return redirect()->route('albums.index')->with('success', 'Album created successfully.');
+}
+
 
     /**
      * Display the specified resource.
