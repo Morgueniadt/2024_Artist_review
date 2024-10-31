@@ -12,15 +12,9 @@
                     <h3 class="font-semibold text-lg mb-4">Album Details</h3>
                     <x-album-details
                         :name="$albums->name"            {{-- Album name attribute --}}
-<<<<<<< HEAD
-                        :cover-image="$albums->image"      {{-- Adjusted to the correct attribute for the cover image --}}
-                        :year="$albums->year"              {{-- Year of the album --}}
-                        :duration="$albums->duration"      {{-- Duration of the album --}}
-=======
                         :cover-image="$albums->image"    {{-- Adjusted to the correct attribute for the cover image --}}
                         :year="$albums->year"            {{-- Year of the album --}}
                         :duration="$albums->duration"    {{-- Duration of the album --}}
->>>>>>> a71220dd7e4c92547d714fd381bab85e00711cac
                         :number-of-songs="$albums->number_of_songs" {{-- Number of songs in the album --}}
                     />
 
