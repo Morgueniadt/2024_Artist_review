@@ -10,7 +10,7 @@
     
     <!-- Album Cover Image -->
     <div class="overflow-hidden rounded-lg mb-4 flex justify-center">
-        @if ($image)
+        @if (image)
             <img src="{{ asset($image) }}" alt="Album Cover" class="max-w-full h-auto rounded-lg" />
         @else
             <p class="text-gray-500">No image available</p>
