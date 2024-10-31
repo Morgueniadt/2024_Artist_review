@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @props(['name', 'duration', 'release_year', 'number_of_songs', 'image'])
+=======
+@props(['name', 'duration', '$release_year', 'number_of_songs', 'image'])
+>>>>>>> a71220dd7e4c92547d714fd381bab85e00711cac
 <!-- Album Details Component -->
 <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto"> 
     <!-- Limit the overall container width -->
