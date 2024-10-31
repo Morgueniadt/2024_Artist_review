@@ -21,7 +21,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:45:12',
                 'release_year' => 2012,
                 'number_of_songs' => 12,
-                'image' => '../albums/finally_rich.jpg', // Add image path
+                'image' => '..../albums/finally_rich.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
@@ -30,7 +30,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:41:10',
                 'release_year' => 2013,
                 'number_of_songs' => 10,
-                'image' => '../albums/bang_2.jpg', // Add image path
+                'image' => '..../albums/bang_2.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
@@ -39,7 +39,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:50:35',
                 'release_year' => 2015,
                 'number_of_songs' => 15,
-                'image' => '../albums/bang_3.jpg', // Add image path
+                'image' => '..../albums/bang_3.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
@@ -48,7 +48,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:45:00',
                 'release_year' => 2017,
                 'number_of_songs' => 12,
-                'image' => '../albums/thot_breaker.jpg', // Add image path
+                'image' => '..../albums/thot_breaker.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
@@ -57,7 +57,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:36:15',
                 'release_year' => 2019,
                 'number_of_songs' => 12,
-                'image' => '../albums/glotoven.jpg', // Add image path
+                'image' => '..../albums/glotoven.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
@@ -66,7 +66,7 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:39:00',
                 'release_year' => 2021,
                 'number_of_songs' => 12,
-                'image' => '../albums/4nem.jpg', // Add image path
+                'image' => '..../albums/4nem.jpg', // Add image path
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
