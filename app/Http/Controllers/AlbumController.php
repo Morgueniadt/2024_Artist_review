@@ -21,7 +21,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.create'); // Corrected view title to 'albums.create'
+        return view('albums.create'); // Corrected view name to 'albums.create'
     }
 
     /**
@@ -30,7 +30,7 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
             'duration' => 'required|string',
             'release_year' => 'required|date',
@@ -38,7 +38,7 @@ class AlbumController extends Controller
         ]);
 
         $album = new Album();
-        $album->title = $request->title; // Assuming the column is 'title'
+        $album->name = $request->name; // Assuming the column is 'name'
         $album->duration = $request->duration;
         $album->release_year = $request->release_year;
         $album->number_of_songs = $request->number_of_songs;
@@ -72,14 +72,14 @@ class AlbumController extends Controller
     public function update(Request $request, Album $album)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Make image nullable
             'duration' => 'required|string',
             'release_year' => 'required|date',
             'number_of_songs' => 'required|integer',
         ]);
 
-        $album->title = $request->title; // Update title
+        $album->name = $request->name; // Update name
         $album->duration = $request->duration;
         $album->release_year = $request->release_year;
         $album->number_of_songs = $request->number_of_songs;

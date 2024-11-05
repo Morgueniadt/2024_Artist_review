@@ -4,19 +4,19 @@
     @csrf
     @method($method)
 
-    <!-- Album Title Input -->
+    <!-- Album name Input -->
     <div class="mb-4">
-        <label for="title" class="block text-sm font-medium text-gray-700">Album Title</label>
+        <label for="name" class="block text-sm font-medium text-gray-700">Album name</label>
         <input 
             type="text" 
-            name="title" 
-            id="title" 
-            value="{{ old('title', $album->title ?? '') }}" <!-- Uses old input or the album's title -->
+            name="name" 
+            id="name" 
+            value="{{ old('name', $album->name ?? '') }}" <!-- Uses old input or the album's name -->
             required 
             class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
         />
-        @error('title')
-            <p class="text-sm text-red-600">{{ $message }}</p> <!-- Displays error message for title -->
+        @error('name')
+            <p class="text-sm text-red-600">{{ $message }}</p> <!-- Displays error message for name -->
         @enderror
     </div>
 

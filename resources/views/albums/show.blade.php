@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">Album Details</h3>
                     <x-album-details
-                        :name="$album->title"            {{-- Album title attribute --}}
+                        :name="$album->name"            {{-- Album name attribute --}}
                         :cover-image="$album->image"    {{-- Adjusted to the correct attribute for the cover image --}}
                         :year="$album->year"            {{-- Year of the album --}}
                         :duration="$album->duration"    {{-- Duration of the album --}}

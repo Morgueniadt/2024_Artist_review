@@ -12,7 +12,7 @@
                         @foreach ($albums as $album)
                             <a href="{{ route('album.show', $album) }}">
                                 <x-album-card
-                                    :name="$album->title"
+                                    :name="$album->name"
                                     :image="$album->image"
                                     :duration="$album->duration"
                                     :release_year="$album->release_year"

@@ -14,10 +14,10 @@
                         @csrf
 
                         <div class="grid grid-cols-1 gap-6">
-                            <!-- Album Title Input -->
+                            <!-- Album name Input -->
                             <div>
-                                <label for="title" class="block font-medium text-gray-700">Album Title</label>
-                                <input type="text" id="title" name="title" value="{{ old('title') }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
+                                <label for="name" class="block font-medium text-gray-700">Album name</label>
+                                <input type="text" id="name" name="name" value="{{ old('name') }}" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" required>
                             </div>
 
                             <!-- Album Image Input -->
