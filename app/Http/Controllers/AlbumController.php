@@ -43,11 +43,8 @@ class AlbumController extends Controller
         $album->release_year = $request->release_year;
         $album->number_of_songs = $request->number_of_songs;
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('albums', 'public');
-            $album->image = $imagePath;
-        }
-
+        $request->image->move(public_path('images'), $imageName);
+        $album->image = 'images/'.$imageName;
         $album->save();
 
         return redirect()->route('albums.index')->with('success', 'Album created successfully.');

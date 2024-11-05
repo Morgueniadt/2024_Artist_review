@@ -12,16 +12,16 @@
 
         <!-- Image is restricted to a smaller size -->
     </div>
-    
-    <!-- Release Date -->
-    <h2 class="text-gray-500 text-sm italic mb-4">Released: {{ $release_year }}</h2> 
-    <!-- Emphasizing release date -->
-    
-    <!-- Album Duration -->
+        <!-- Album Duration -->
     <h3 class="text-gray-800 font-semibold mb-2" style="font-size: 1.5rem;">Duration</h3> 
     <!-- Subheading for duration -->
     <p class="text-gray-700 leading-relaxed mb-4">{{ $duration }}</p> 
     <!-- Text is spaced out for readability -->
+    <!-- Release Date -->
+    <h2 class="text-gray-500 text-sm italic mb-4">Released: {{ $release_year }}</h2> 
+    <!-- Emphasizing release date -->
+    
+
 
     <!-- Number of Songs -->
     <h3 class="text-gray-800 font-semibold mb-2" style="font-size: 1.5rem;">Number of Songs</h3> 
