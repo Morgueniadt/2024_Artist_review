@@ -25,7 +25,7 @@ return new class extends Migration
 */
 Schema::create('albums', function (Blueprint $table) {
     $table->id();
-    $table->string('name'); // Correct type for name
+    $table->string('title'); // Correct type for name
     $table->time('duration'); // Store duration properly
     $table->year('release_year'); // Correct naming
     $table->integer('number_of_songs'); // Correct naming
