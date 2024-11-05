@@ -4,9 +4,9 @@
 <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto">
 
     <!-- Album Cover Image -->
-    @if($image)
-        <img src="{{ $image }}" alt="Album Cover" class="w-full h-auto rounded-lg mb-4">
-    @endif
+    
+        <img src="{{ url($image) }}" alt="Album Cover" class="w-full h-auto rounded-lg mb-4">
+  
 
     <!-- Album name -->
     <h1 class="font-bold text-gray-800 mb-2" style="font-size: 2.5rem;">{{ $name }}</h1> 

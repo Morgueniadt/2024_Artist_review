@@ -12,18 +12,13 @@
                     <h3 class="font-semibold text-lg mb-4">Album Details</h3>
                     <x-album-details
                         :name="$album->name"            {{-- Album name attribute --}}
-                        :cover-image="$album->image"    {{-- Adjusted to the correct attribute for the cover image --}}
-                        :year="$album->year"            {{-- Year of the album --}}
+                        :image="$album->image"    {{-- Adjusted to the correct attribute for the cover image --}}
+                        :release_year="$album->release_year"            {{-- Year of the album --}}
                         :duration="$album->duration"    {{-- Duration of the album --}}
-                        :number-of-songs="$album->number_of_songs" {{-- Number of songs in the album --}}
+                        :number_of_songs="$album->number_of_songs" {{-- Number of songs in the album --}}
                     />
 
-                    {{-- Edit Button --}}
-                    <div class="mt-6">
-                        <a href="{{ route('albums.edit', $album->id) }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500">
-                            {{ __('Edit Album') }}
-                        </a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
