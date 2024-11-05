@@ -21,7 +21,11 @@ class ArtistSeeder extends Seeder
                 'duration' => '00:45:12',
                 'release_year' => 2012,
                 'number_of_songs' => 12,
+<<<<<<< HEAD
                 'image' => '/albums/finally_rich.jpg', // Add image path
+=======
+                'image' => '..../albums/finally_rich.jpg', // Add image path
+>>>>>>> 7c75abf774b15525382dbe43ddc7e4f543159edb
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
