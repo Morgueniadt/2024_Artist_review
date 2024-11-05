@@ -49,27 +49,12 @@ class ArtistSeeder extends Seeder
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
-            [
-                'title' => 'The Dedication',
-                'duration' => '00:38:30',
-                'release_year' => 2018,
-                'number_of_songs' => 11,
-                'created_at' => $currentTimestamp,
-                'updated_at' => $currentTimestamp,
-            ],
+
             [
                 'title' => 'GloToven',
                 'duration' => '00:36:15',
                 'release_year' => 2019,
                 'number_of_songs' => 12,
-                'created_at' => $currentTimestamp,
-                'updated_at' => $currentTimestamp,
-            ],
-            [
-                'title' => 'The Voice',
-                'duration' => '00:44:50',
-                'release_year' => 2020,
-                'number_of_songs' => 14,
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
