@@ -1,11 +1,11 @@
-@props(['name', 'duration', 'release_year', 'number_of_songs', 'image'])
+@props(['title', 'duration', 'release_year', 'number_of_songs', 'image'])
 
 // Album Details Component
 <div class="border rounded-lg shadow-md p-6 bg-white hover:shadow-lg transition duration-300 max-w-xl mx-auto"> 
     <!-- Limit the overall container width -->
     
     <!-- Album Title -->
-    <h1 class="font-bold text-gray-800 mb-2" style="font-size: 2.5rem;">{{ $name }}</h1> 
+    <h1 class="font-bold text-gray-800 mb-2" style="font-size: 2.5rem;">{{ $title }}</h1> 
     <!-- Heading with larger text and color -->
     
     <!-- Album Cover Image -->

@@ -21,7 +21,7 @@ class AlbumController extends Controller
      */
     public function create()
     {
-        return view('albums.create'); // Corrected view name to 'albums.create'
+        return view('albums.create'); // Corrected view title to 'albums.create'
     }
 
     /**
@@ -38,7 +38,7 @@ class AlbumController extends Controller
         ]);
 
         $album = new Album();
-        $album->name = $request->title; // Assuming the column is 'name'
+        $album->title = $request->title; // Assuming the column is 'title'
         $album->duration = $request->duration;
         $album->release_year = $request->release_year;
         $album->number_of_songs = $request->number_of_songs;
@@ -79,7 +79,7 @@ class AlbumController extends Controller
             'number_of_songs' => 'required|integer',
         ]);
 
-        $album->name = $request->title; // Update name
+        $album->title = $request->title; // Update title
         $album->duration = $request->duration;
         $album->release_year = $request->release_year;
         $album->number_of_songs = $request->number_of_songs;

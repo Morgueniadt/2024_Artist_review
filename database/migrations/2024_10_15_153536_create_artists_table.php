@@ -35,7 +35,7 @@ Schema::create('albums', function (Blueprint $table) {
 
         /*Schema::create('songs', function (Blueprint $table) {
     $table->id();
-    $table->string('name'); // Correct type for name
+    $table->string('title'); // Correct type for name
     $table->time('duration'); // Duration type
     $table->year('release_year'); // Correct naming
     $table->foreignId('album_id')->constrained('albums')->onDelete('cascade'); // Foreign key
