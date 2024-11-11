@@ -83,30 +83,31 @@ class AlbumController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Make image nullable
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'duration' => 'required|string',
-            'release_year' => 'required|date',
+            'release_year' => 'required|integer|digits:4', // Ensuring it's a 4-digit year
             'number_of_songs' => 'required|integer',
         ]);
-
-        $album->name = $request->name; // Update name
-        $album->duration = $request->duration;
-        $album->release_year = $request->release_year;
-        $album->number_of_songs = $request->number_of_songs;
-
+    
+        $data = $request->only(['name', 'duration', 'release_year', 'number_of_songs']);
+    
         if ($request->hasFile('image')) {
-            // Optionally delete the old image if you want to replace it
+            // Delete the old image if it exists
             if ($album->image) {
-                \Storage::delete('public/' . $album->image); // Delete old image
+                \Storage::delete('public/' . $album->image);
             }
-            $imagePath = $request->file('image')->store('albums', 'public');
-            $album->image = $imagePath; // Save new image path
+            try {
+                $data['image'] = $request->file('image')->store('albums', 'public');
+            } catch (\Exception $e) {
+                return back()->withErrors(['image' => 'Image upload failed. Please try again.']);
+            }
         }
-
-        $album->save();
-
+    
+        $album->update($data);
+    
         return redirect()->route('albums.index')->with('success', 'Album updated successfully.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

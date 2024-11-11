@@ -19,6 +19,9 @@
                                     :number_of_songs="$album->number_of_songs"
                                 />
                             </a>
+                            <a href="{{ route('album.edit', $album->id) }}" class="btn btn-primary">Edit</a>
+                            <button class="btn btn-danger">Delete</button>
+
                         @endforeach
                     </div>
                 </div>

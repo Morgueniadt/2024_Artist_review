@@ -19,7 +19,7 @@ Route::post('/album', [AlbumController::class, 'store'])->name('album.store');
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');
 
 // Album Update
-Route::patch('/album/{album}', [AlbumController::class, 'update'])->name('album.update');
+Route::put('/album/{album}', [AlbumController::class, 'update'])->name('album.update');
 
 // Album Destroy
 Route::delete('/album/{album}', [AlbumController::class, 'destroy'])->name('album.destroy');
