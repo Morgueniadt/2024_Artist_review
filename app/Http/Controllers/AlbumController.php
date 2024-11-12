@@ -25,6 +25,9 @@ class AlbumController extends Controller
      */
     public function create()
     {
+        if (auth()->user()->role !== 'admin'){
+            return redirect()->route('album.index')->with('error', 'Access denied.');
+        }
         // Return the view for creating a new album
         return view('albums.create');
     }
