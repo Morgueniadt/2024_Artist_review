@@ -18,16 +18,25 @@
                     <x-nav-link :href="route('album.index')" :active="request()->routeIs('album.index')">
                         {{ __('View All Albums') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('album.create')" :active="request()->routeIs('album.create')">
-                        {{ __('Create new Album') }}
-                    </x-nav-link>
+                    
+                    <!-- Conditionally show Create New Album link only for admins -->
+                    @if(auth()->check() && auth()->user()->role === 'admin')
+                        <x-nav-link :href="route('album.create')" :active="request()->routeIs('album.create')">
+                            {{ __('Create New Album') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
-            <!-- the create link only appears for admin users --> 
-                @if(auth()->user()->role === 'admin')
-                <x-nav-link :href="route('books.create')" :active="request()->routeIs('books.create')"> {{ _('Create New Books') }}
-                </x-nav-link>
-                @endif
+
+ <div class="hidden sm:flex sm:items-center sm:ms-6">
+                <button @click="document.documentElement.classList.toggle('dark')"
+                        class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 focus:outline-none">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3v3M12 18v3M4.22 4.22l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.22 19.78l2.12-2.12M16.95 7.05l2.12-2.12" />
+                    </svg>
+                </button>
+            </div>
+            
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
@@ -44,9 +53,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('album.index')">
-                            {{ __('Album') }}
-                        </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -87,11 +93,11 @@
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('album.index')">
-                    {{ __('Album') }}
-                </x-responsive-nav-link>
 
+           
+
+            <div class="mt-3 space-y-1">
+               
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf

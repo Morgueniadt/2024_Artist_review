@@ -7,6 +7,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <!-- Inner content area with padding and text color styling -->
                 <div class="p-6 text-gray-900">
+
+
                     <!-- Use a grid layout to display albums in two columns -->
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <!-- Check if albums are available -->
@@ -27,22 +29,24 @@
                                             :number_of_songs="$album->number_of_songs" />
                                     </a>
 
-                                    <!-- Edit and Delete Buttons container (no box) -->
-                                    <div class="mt-4 flex space-x-2">
-                                        <!-- Edit Button -->
-                                        <a href="{{ route('album.edit', $album) }}" class="text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded">
-                                            Edit
-                                        </a>
+                                    <!-- Admin specific buttons (Edit and Delete) -->
+                                    @if(auth()->check() && auth()->user()->role === 'admin')
+                                        <div class="mt-4 flex space-x-2">
+                                            <!-- Edit Button -->
+                                            <a href="{{ route('album.edit', $album) }}" class="text-gray-600 bg-orange-300 hover:bg-orange-700 font-bold py-2 px-4 rounded">
+                                                Edit
+                                            </a>
 
-                                        <!-- Delete Button -->
-                                        <form action="{{ route('album.destroy', $album) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this album?');">
-                                            @csrf <!-- CSRF protection for the form -->
-                                            @method('DELETE') <!-- Specify that this is a DELETE request -->
-                                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded">
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </div>
+                                            <!-- Delete Button -->
+                                            <form action="{{ route('album.destroy', $album) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this album?');">
+                                                @csrf <!-- CSRF protection for the form -->
+                                                @method('DELETE') <!-- Specify that this is a DELETE request -->
+                                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-gray-100 font-bold py-2 px-4 rounded">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    @endif
                                 </div>
                             @endforeach
                         @endif
