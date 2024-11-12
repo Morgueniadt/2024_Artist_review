@@ -23,7 +23,11 @@
                     </x-nav-link>
                 </div>
             </div>
-
+            <!-- the create link only appears for admin users --> 
+                @if(auth()->user()->role === 'admin')
+                <x-nav-link :href="route('books.create')" :active="request()->routeIs('books.create')"> {{ _('Create New Books') }}
+                </x-nav-link>
+                @endif
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
