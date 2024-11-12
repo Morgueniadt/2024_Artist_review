@@ -18,8 +18,8 @@
 
                     {{-- Using the AlbumForm component to create the album --}}
                     <x-album-form 
-                        :action="route('album.store')" 
-                        :method="'POST'" 
+                        :action="route('album.store')" <!-- Defines the route for form submission -->
+                        :method="'POST'" <!-- Specifies HTTP method as POST for creating a new album -->
                     />
                 </div>
             </div>
