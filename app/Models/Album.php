@@ -20,4 +20,10 @@ class Album extends Model
         'created_at',          // Timestamp of when the album was created (automatically handled by Eloquent).
         'updated_at',          // Timestamp of when the album was last updated (automatically handled by Eloquent).
     ];
+
+    
+public function reviews()
+{
+return $this->hasMany (Review::class);
+}
 }
