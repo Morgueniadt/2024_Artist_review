@@ -10,7 +10,7 @@ use HasFactory;
     'user_id',
     'rating',
     'comment',
-    'car_id'
+    'album_id'
  ];
 
 public function book()
