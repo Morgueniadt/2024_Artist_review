@@ -10,7 +10,7 @@ class ReviewController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * (List reviews for a specific album or all reviews)
+     * (List reviews for a specific album)
      */
     public function index(Album $album)
     {
@@ -24,7 +24,7 @@ class ReviewController extends Controller
      */
     public function create(Album $album)
     {
-        // The create form is typically handled in the Blade view (no need for logic here).
+        // Pass the album to the review creation view
         return view('reviews.create', compact('album'));
     }
 
@@ -48,7 +48,6 @@ class ReviewController extends Controller
     
         return redirect()->route('album.show', $album)->with('success', 'Review added successfully.');
     }
-    
 
     /**
      * Display the specified resource.
@@ -56,7 +55,7 @@ class ReviewController extends Controller
      */
     public function show(Review $review)
     {
-        // If you want to show a single review (e.g., for admin or user profile)
+        // Show the review's details
         return view('reviews.show', compact('review'));
     }
 
@@ -65,13 +64,16 @@ class ReviewController extends Controller
      */
     public function edit(Review $review)
     {
-        // Make sure the user is the one who created the review, or an admin.
+        // Fetch the album related to the review
+        $album = $review->album;
+
+        // Make sure the user is the one who created the review, or an admin
         if ($review->user_id != auth()->id() && !auth()->user()->isAdmin()) {
-            return redirect()->route('album.show', $review->album)->with('error', 'You are not authorized to edit this review.');
+            return redirect()->route('album.show', $album)->with('error', 'You are not authorized to edit this review.');
         }
 
-        // Show the edit form
-        return view('reviews.edit', compact('review'));
+        // Pass the album and review to the edit view
+        return view('reviews.edit', compact('review', 'album'));
     }
 
     /**
@@ -79,7 +81,7 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        // Make sure the user is the one who created the review, or an admin.
+        // Make sure the user is the one who created the review, or an admin
         if ($review->user_id != auth()->id() && !auth()->user()->isAdmin()) {
             return redirect()->route('album.show', $review->album)->with('error', 'You are not authorized to update this review.');
         }
@@ -105,7 +107,7 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        // Make sure the user is the one who created the review, or an admin.
+        // Make sure the user is the one who created the review, or an admin
         if ($review->user_id != auth()->id() && !auth()->user()->isAdmin()) {
             return redirect()->route('album.show', $review->album)->with('error', 'You are not authorized to delete this review.');
         }
