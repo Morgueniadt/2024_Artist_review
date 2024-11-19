@@ -13,7 +13,6 @@ Route::post('/album', [AlbumController::class, 'store'])->name('album.store');  
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');  // Edit an existing album
 Route::put('/album/{album}', [AlbumController::class, 'update'])->name('album.update');  // Update an album
 Route::delete('/album/{album}', [AlbumController::class, 'destroy'])->name('album.destroy');  // Delete an album
-Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 
 // Home Route (Landing page)
@@ -31,10 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');  // Edit profile
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');  // Update profile
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');  // Delete profile
-    // Review Routes (Resourceful CRUD for reviews)
-Route::resource('reviews', ReviewController::class);  // This automatically handles CRUD for reviews
 
 });
+    // Review Routes (Resourceful CRUD for reviews)
+    Route::resource('reviews', ReviewController::class);  // This automatically handles CRUD for reviews
+    Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+
+
 
 // Load authentication routes (Login, Register, etc.)
 require __DIR__.'/auth.php';

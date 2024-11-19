@@ -31,25 +31,25 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Album $album)
-    {
-        // Validate the request data
-        $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:1000',
-        ]);
-    
-        // Create the review with album_id and user_id
-        $album->reviews()->create([
-            'user_id' => auth()->id(),
-            'rating' => $request->input('rating'),
-            'comment' => $request->input('comment'),
-            'album_id' => $album->id, // Make sure to pass the correct album_id
-        ]);
-    
-        // Redirect back with success message
-        return redirect()->route('album.show', $album)->with('success', 'Review added successfully.');
-    }
+   public function store(Request $request, Album $album)
+{
+    // Validate the request data
+    $request->validate([
+        'rating' => 'required|integer|min:1|max:5',
+        'comment' => 'nullable|string|max:1000',
+    ]);
+
+    // Create the review with album_id and user_id
+    $album->reviews()->create([
+        'user_id' => auth()->id(),
+        'rating' => $request->input('rating'),
+        'comment' => $request->input('comment'),
+        'album_id' => $album->id, // Make sure to pass the correct album_id
+    ]);
+
+    // Redirect back with success message
+    return redirect()->route('album.show', $album)->with('success', 'Review added successfully.');
+}
 
     /**
      * Display the specified resource.
