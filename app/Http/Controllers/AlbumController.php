@@ -40,6 +40,8 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
+
+        
         // Validate the form input for creating an album
         $request->validate([
             'name' => 'required|string|max:255',
