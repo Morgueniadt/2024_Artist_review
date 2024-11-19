@@ -28,14 +28,6 @@
                 </div>
             </div>
 
- <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <button @click="document.documentElement.classList.toggle('dark')"
-                        class="text-gray-500 dark:text-gray-300 hover:text-gray-700 dark:hover:text-gray-400 focus:outline-none">
-                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 3v3M12 18v3M4.22 4.22l2.12 2.12M16.95 16.95l2.12 2.12M3 12h3M18 12h3M4.22 19.78l2.12-2.12M16.95 7.05l2.12-2.12" />
-                    </svg>
-                </button>
-            </div>
             
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
