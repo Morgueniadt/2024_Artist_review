@@ -46,27 +46,29 @@
                     {{-- Add a New Review --}}
                     <h4 class="font-semibold text-md mt-8">Add a Review</h4>
                     <form action="{{ route('reviews.store', $album) }}" method="POST" class="mt-4">
-                        @csrf
-                        <div class="mb-4">
-                            <label for="rating" class="block font-medium text-sm text-gray-700">Rating</label>
-                            <select name="rating" id="rating" class="mt-1 block w-full" required>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
+    @csrf
+    <div class="mb-4">
+        <label for="rating" class="block font-medium text-sm text-gray-700">Rating</label>
+        <select name="rating" id="rating" class="mt-1 block w-full" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="mb-4">
+        <label for="comment" class="block font-medium text-sm text-gray-700">Comment</label>
+        <textarea name="comment" id="comment" rows="3" class="mt-1 block w-full" placeholder="Write your review here..."></textarea>
+    </div>
+    <!-- Hidden input to pass album_id -->
+    <input type="hidden" name="album_id" value="{{ $album->id }}">
+    
+    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Submit Review
+    </button>
+</form>
 
-                        <div class="mb-4">
-                            <label for="comment" class="block font-medium text-sm text-gray-700">Comment</label>
-                            <textarea name="comment" id="comment" rows="3" class="mt-1 block w-full" placeholder="Write your review here..."></textarea>
-                        </div>
-
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                            Submit Review
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>

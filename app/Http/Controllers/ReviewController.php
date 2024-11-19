@@ -33,21 +33,21 @@ class ReviewController extends Controller
      */
     public function store(Request $request, Album $album)
     {
-        // Validate the request
+        // Validate the request data
         $request->validate([
-            'rating' => 'required|integer|min:1|max:5', // Rating between 1 and 5
-            'comment' => 'nullable|string|max:1000',   // Optional comment with a max length of 1000 characters
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'nullable|string|max:1000',
         ]);
-
-        // Create the review associated with the album and user
+    
+        // Create the review with album_id and user_id
         $album->reviews()->create([
-            'user_id' => auth()->id(),                     // Current authenticated user ID
-            'rating' => $request->input('rating'),         // Rating from the request
-            'comment' => $request->input('comment'),       // Comment from the request (nullable)
-            'album_id' => $album->id,                      // Album ID (this is passed via the route)
+            'user_id' => auth()->id(),
+            'rating' => $request->input('rating'),
+            'comment' => $request->input('comment'),
+            'album_id' => $album->id, // Make sure to pass the correct album_id
         ]);
-
-        // Redirect back to the album's page with a success message
+    
+        // Redirect back with success message
         return redirect()->route('album.show', $album)->with('success', 'Review added successfully.');
     }
 

@@ -13,7 +13,7 @@ Route::post('/album', [AlbumController::class, 'store'])->name('album.store');  
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');  // Edit an existing album
 Route::put('/album/{album}', [AlbumController::class, 'update'])->name('album.update');  // Update an album
 Route::delete('/album/{album}', [AlbumController::class, 'destroy'])->name('album.destroy');  // Delete an album
-Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');  // review an album
+Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 
 // Home Route (Landing page)
