@@ -56,13 +56,6 @@ Schema::create('albums', function (Blueprint $table) {
 
         });*/
 
-       /* Schema::create('reviews', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Foreign key
-            $table->foreignId('artist_id')->constrained('artists')->onDelete('cascade'); // Foreign key
-            $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade'); // Foreign key
-            $table->timestamps();
-        });*/
     }
 
     /**
