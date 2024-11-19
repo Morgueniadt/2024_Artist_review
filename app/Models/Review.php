@@ -13,7 +13,7 @@ use HasFactory;
     'album_id'
  ];
 
-public function book()
+public function album()
 {
 return $this->belongsTo (Album::class);
 }
