@@ -10,6 +10,7 @@ use HasFactory;
     'user_id',
     'rating',
     'comment',
+    'user_id',
     'album_id'
  ];
 
