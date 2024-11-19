@@ -15,7 +15,7 @@ use HasFactory;
 
 public function book()
 {
-return $this->belongsTo (Book::class);
+return $this->belongsTo (Album::class);
 }
 
 public function user()
