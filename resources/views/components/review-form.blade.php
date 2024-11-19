@@ -24,6 +24,6 @@
     <input type="hidden" name="album_id" value="{{ $album->id }}">
 
     <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        {{ __('Update Review') }}
+        {{ $method == 'PUT' ? 'Update Review' : 'Submit Review' }}
     </button>
 </form>

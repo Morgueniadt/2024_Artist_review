@@ -19,16 +19,15 @@
 
                     <!-- Album Details Component: Passing album data to the component -->
                     <x-album-details
-                        :name="$album->name"             {{-- Album name attribute passed to the component --}}
-                        :image="$album->image"           {{-- Album cover image path passed to the component --}}
-                        :release_year="$album->release_year"  {{-- Album release year passed to the component --}}
-                        :duration="$album->duration"      {{-- Album duration passed to the component --}}
-                        :number_of_songs="$album->number_of_songs" {{-- Number of songs in the album passed to the component --}}
+                        :name="$album->name"
+                        :image="$album->image"
+                        :release_year="$album->release_year"
+                        :duration="$album->duration"
+                        :number_of_songs="$album->number_of_songs"
                     />
-                    
-                    {{-- Album Reviews --}}
-                    <h4 class="font-semibold text-md mt-8">Reviews</h4>
 
+                    <!-- Album Reviews Section -->
+                    <h4 class="font-semibold text-md mt-8">Reviews</h4>
                     @if($album->reviews->isEmpty())
                         <p class="text-gray-600">No reviews yet.</p>
                     @else
@@ -39,34 +38,28 @@
                                     <p>Rating: {{ $review->rating }} / 5</p>
                                     <p>{{ $review->comment }}</p>
 
-                                    <!-- Edit and Delete Buttons -->
-                                    @can('update', $review)  <!-- Only show for the review owner -->
-                                        <a href="{{ route('reviews.edit', $review) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
-                                    @endcan
+                                    {{-- Only show edit and delete options if the user is the reviewer or an admin --}}
+                                    @if ($review->user->is(auth()->user()) || auth()->user()->role === "admin")
+                                        <!-- Edit Review Link -->
+                                        <a href="{{ route('reviews.edit', $review) }}" class="bg-yellow-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                                            Edit Review
+                                        </a>
 
-                                    @can('delete', $review)  <!-- Only show for the review owner -->
-                                        <form action="{{ route('reviews.destroy', $review) }}" method="POST" class="inline-block">
+                                        <!-- Delete Review Form -->
+                                        <form method="POST" action="{{ route('reviews.destroy', $review) }}" class="inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded ml-2">
+                                                Delete Review
+                                            </button>
                                         </form>
-                                    @endcan
-
-                                    @can('delete', $review)  <!-- Admin can also delete -->
-                                        @if(auth()->user()->role === 'admin')
-                                            <form action="{{ route('reviews.destroy', $review) }}" method="POST" class="inline-block">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
-                                            </form>
-                                        @endif
-                                    @endcan
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
                     @endif
 
-                    {{-- Add a New Review --}}
+                    <!-- Add a New Review -->
                     <h4 class="font-semibold text-md mt-8">Add a Review</h4>
                     <form action="{{ route('reviews.store', $album) }}" method="POST" class="mt-4">
                         @csrf
@@ -86,7 +79,7 @@
                         </div>
                         <!-- Hidden input to pass album_id -->
                         <input type="hidden" name="album_id" value="{{ $album->id }}">
-                        
+
                         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                             Submit Review
                         </button>
