@@ -99,6 +99,15 @@ class ArtistSeeder extends Seeder
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
             ],
+            [
+                'name' => 'Nevermind',
+                'duration' => '00:49:15',
+                'release_year' => 1991,
+                'number_of_songs' => 13,
+                'image' => 'images/Nevermind.jpg',
+                'created_at' => $currentTimestamp,
+                'updated_at' => $currentTimestamp,
+            ],
         ];
 
         // Insert albums into the database
