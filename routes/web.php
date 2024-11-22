@@ -3,6 +3,7 @@
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SongController;
 use Illuminate\Support\Facades\Route;
 
 // Album Routes
@@ -13,6 +14,7 @@ Route::post('/album', [AlbumController::class, 'store'])->name('album.store');  
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');  // Edit an existing album
 Route::put('/album/{album}', [AlbumController::class, 'update'])->name('album.update');  // Update an album
 Route::delete('/album/{album}', [AlbumController::class, 'destroy'])->name('album.destroy');  // Delete an album
+Route::post('song', [SongController::class, 'store'])->name('song.store');
 
 
 // Home Route (Landing page)
@@ -31,12 +33,15 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');  // Update profile
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');  // Delete profile
 
+    // Song Routes - Require authentication
+    Route::post('song', [SongController::class, 'store'])->name('song.store'); // Storing song data
 });
-    // Review Routes (Resourceful CRUD for reviews)
-    Route::resource('reviews', ReviewController::class);  // This automatically handles CRUD for reviews
-    Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
+// Review Routes (Resourceful CRUD for reviews)
+Route::resource('reviews', ReviewController::class);  // This automatically handles CRUD for reviews
 
+// Store a review for an album (this route should be placed outside the 'auth' middleware if reviews are public)
+Route::post('/album/{album}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
 
 // Load authentication routes (Login, Register, etc.)
 require __DIR__.'/auth.php';
