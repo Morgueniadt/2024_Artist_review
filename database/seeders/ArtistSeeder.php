@@ -99,7 +99,7 @@ class ArtistSeeder extends Seeder
             ],
         ]);
         
-        foreach ($albums as $albumData) {
+        foreach ($album as $albumData) {
             $album = Album::create($albumData);
 
             // Randomly select songs for each album
