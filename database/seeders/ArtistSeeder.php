@@ -98,5 +98,15 @@ class ArtistSeeder extends Seeder
                 'updated_at' => $currentTimestamp,
             ],
         ]);
+        
+        foreach ($albums as $albumData) {
+            $album = Album::create($albumData);
+
+            // Randomly select songs for each album
+            $songs = Song::inRandomOrder()->take($album->number_of_songs)->pluck('id');
+
+            // Attach the selected songs to the album
+            $album->songs()->attach($songs);
+        }
     }
 }
