@@ -119,3 +119,4 @@ class ReviewController extends Controller
         return redirect()->route('album.show', $review->album)->with('success', 'Review deleted successfully.');
     }
 }
+    
