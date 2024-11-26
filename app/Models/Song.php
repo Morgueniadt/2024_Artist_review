@@ -19,4 +19,10 @@ class Song extends Model
  {
      return $this->belongsToMany(Album::class, 'album_song', 'song_id', 'album_id');
  }
+// Song.php (Model)
+public function reviews()
+{
+    return $this->hasMany(Review::class);
+}
+
 }

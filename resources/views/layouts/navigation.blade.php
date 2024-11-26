@@ -18,11 +18,17 @@
                     <x-nav-link :href="route('album.index')" :active="request()->routeIs('album.index')">
                         {{ __('View All Albums') }}
                     </x-nav-link>
-                    
+                    <x-nav-link :href="route('song.index')" :active="request()->routeIs('song.index')">
+                        {{ __('View All Songs') }}
+                    </x-nav-link>
+
                     <!-- Conditionally show Create New Album link only for admins -->
                     @if(auth()->check() && auth()->user()->role === 'admin')
                         <x-nav-link :href="route('album.create')" :active="request()->routeIs('album.create')">
                             {{ __('Create New Album') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('song.create')" :active="request()->routeIs('song.create')">
+                            {{ __('Create New Song') }}
                         </x-nav-link>
                     @endif
                 </div>

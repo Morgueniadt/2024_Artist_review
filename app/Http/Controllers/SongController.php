@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -39,9 +38,17 @@ class SongController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'duration' => 'required|date_format:H:i:s', 
+            'duration' => 'required|date_format:H:i:s', // Adjust if you use numeric duration
             'release_year' => 'required|digits:4',
+            // If you plan to handle file uploads, you could add:
+            // 'song_file' => 'required|file|mimes:mp3,wav|max:10240', // 10MB max
         ]);
+
+        // Optionally handle file upload (if applicable)
+        // if ($request->hasFile('song_file')) {
+        //     $path = $request->file('song_file')->store('songs', 'public');
+        //     $validated['song_file'] = $path; // Store the file path in the database
+        // }
 
         // Create a new song using the validated data
         Song::create($validated);
@@ -76,9 +83,17 @@ class SongController extends Controller
         // Validate the incoming request
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'duration' => 'required|date_format:H:i:s', 
+            'duration' => 'required|date_format:H:i:s', // Adjust if you use numeric duration
             'release_year' => 'required|digits:4',
+            // If you plan to handle file uploads, you could add:
+            // 'song_file' => 'nullable|file|mimes:mp3,wav|max:10240', // Optional file upload
         ]);
+
+        // Optionally handle file upload (if applicable)
+        // if ($request->hasFile('song_file')) {
+        //     $path = $request->file('song_file')->store('songs', 'public');
+        //     $validated['song_file'] = $path; // Store the file path in the database
+        // }
 
         // Update the song using the validated data
         $song->update($validated);
@@ -92,6 +107,11 @@ class SongController extends Controller
      */
     public function destroy(Song $song)
     {
+        // Optionally delete song file if exists
+        // if ($song->song_file && Storage::exists($song->song_file)) {
+        //     Storage::delete($song->song_file); // Delete the file
+        // }
+
         // Delete the song from the database
         $song->delete();
 

@@ -28,8 +28,10 @@ class Review extends Model
     /**
      * The user who wrote the review.
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class); // Review belongs to one user
-    }
+// Review.php (Model)
+public function song()
+{
+    return $this->belongsTo(Song::class);
+}
+
 }

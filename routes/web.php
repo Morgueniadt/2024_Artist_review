@@ -14,7 +14,15 @@ Route::post('/album', [AlbumController::class, 'store'])->name('album.store');  
 Route::get('/album/{album}/edit', [AlbumController::class, 'edit'])->name('album.edit');  // Edit an existing album
 Route::put('/album/{album}', [AlbumController::class, 'update'])->name('album.update');  // Update an album
 Route::delete('/album/{album}', [AlbumController::class, 'destroy'])->name('album.destroy');  // Delete an album
-Route::post('song', [SongController::class, 'store'])->name('song.store');
+
+// Song Routes
+Route::get('/song', [SongController::class, 'index'])->name('song.index');  // View all song
+Route::get('/song/{song}', [SongController::class, 'show'])->name('song.show');  // View a single song
+Route::get('/song/create', [SongController::class, 'create'])->name('song.create');  // Form to create a new song
+Route::post('/song', [SongController::class, 'store'])->name('song.store');  // Store new song
+Route::get('/song/{song}/edit', [SongController::class, 'edit'])->name('song.edit');  // Form to edit an existing song
+Route::put('/song/{song}', [SongController::class, 'update'])->name('song.update');  // Update an existing song
+Route::delete('/song/{song}', [SongController::class, 'destroy'])->name('song.destroy');  // Delete a song
 
 
 // Home Route (Landing page)
@@ -32,9 +40,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');  // Edit profile
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');  // Update profile
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');  // Delete profile
-
-    // Song Routes - Require authentication
-    Route::post('song', [SongController::class, 'store'])->name('song.store'); // Storing song data
 });
 
 // Review Routes (Resourceful CRUD for reviews)
