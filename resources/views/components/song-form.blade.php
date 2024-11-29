@@ -1,16 +1,39 @@
-@props(['action', 'method', 'albums', 'song'])
+@props(['action', 'method', 'albums', 'song', 'image'])
+
+@csrf
+@if($method === 'PUT' || $method === 'PATCH')
+    @method($method)
+@endif
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    @if($method === 'PUT' || $method === 'PATCH')
-        @method($method)
-    @endif
 
     <!-- Song Name Field -->
     <div class="mb-4">
         <label for="name" class="block text-sm font-medium text-gray-700">Song Name</label>
         <input type="text" id="name" name="name" value="{{ old('name', $song->name ?? '') }}" class="mt-1 block w-full p-2 border rounded-md" required>
     </div>
+
+    <!-- Image Field -->
+    <div class="mb-4">
+        <label for="image" class="block text-sm font-medium text-gray-700">Album Image</label>
+        <input
+            type="file"
+            name="image"
+            id="image"
+            accept="image/*"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+        />
+        @error('image')
+            <p class="text-sm text-red-600">{{ $message }}</p>
+        @enderror
+    </div>
+    
+    <!-- Display Current Image if Editing -->
+    @isset($song->image)
+        <div class="mb-4">
+            <img src="{{ asset('storage/' . $song->image) }}" alt="{{ $song->name }}" class="w-24 h-24 object-cover rounded-md">
+        </div>
+    @endisset
 
     <!-- Duration Field -->
     <div class="mb-4">
@@ -24,13 +47,13 @@
         <input type="text" id="release_year" name="release_year" value="{{ old('release_year', $song->release_year ?? '') }}" class="mt-1 block w-full p-2 border rounded-md" required>
     </div>
 
-    <!-- Song Selection -->
+    <!-- Album Selection -->
     <div class="mb-4">
-        <label for="song_id" class="block text-sm font-medium text-gray-700">Album</label>
-        <select id="song_id" name="song_id" class="mt-1 block w-full p-2 border rounded-md" required>
-            <option value="">Select Song</option>
-            @foreach($albums as $album) <!-- Changed $song to $songItem -->
-                <option value="{{ $album->id }}" {{ old('album_id') == $album->id ? 'selected' : '' }}>
+        <label for="album_id" class="block text-sm font-medium text-gray-700">Album</label>
+        <select id="album_id" name="album_id" class="mt-1 block w-full p-2 border rounded-md" required>
+            <option value="">Select Album</option>
+            @foreach($albums as $album)
+                <option value="{{ $album->id }}" {{ old('album_id', $song->album_id ?? '') == $album->id ? 'selected' : '' }}>
                     {{ $album->name }}
                 </option>
             @endforeach
