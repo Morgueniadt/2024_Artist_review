@@ -6,6 +6,7 @@ use App\Models\Song;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Album;
 
 class SongController extends Controller
 {
@@ -26,8 +27,9 @@ class SongController extends Controller
      */
     public function create()
     {
-        // Return the view for creating a new song
-        return view('songs.create');
+        $albums = Album::all();
+        // Return the view for creating a new song        
+        return view('songs.create', compact('albums'));
     }
 
     /**
@@ -71,8 +73,16 @@ class SongController extends Controller
      */
     public function edit(Song $song)
     {
+
+        $albums = Album::all();
+
+        $data = [
+            'song'  => $song,
+            'albums' => $albums            
+        ];
+
         // Return the view with the song to edit
-        return view('songs.edit', compact('song'));
+        return view('songs.edit')->with('data', $data);
     }
 
     /**

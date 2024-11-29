@@ -19,8 +19,8 @@
                     {{-- Using the SongForm component to create the song --}}
                     <x-song-form 
                         :action="route('song.store')" 
-                        :method="'POST'" 
-                        :songs="$songs"  
+                        :method="'POST'"                         
+                        :albums="$albums"
                     />
                 </div>
             </div>

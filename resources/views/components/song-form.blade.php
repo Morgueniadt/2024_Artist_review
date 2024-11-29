@@ -1,4 +1,4 @@
-@props(['action', 'method', 'album', 'songs'])
+@props(['action', 'method', 'albums', 'song'])
 
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -26,12 +26,12 @@
 
     <!-- Song Selection -->
     <div class="mb-4">
-        <label for="song_id" class="block text-sm font-medium text-gray-700">Song</label>
+        <label for="song_id" class="block text-sm font-medium text-gray-700">Album</label>
         <select id="song_id" name="song_id" class="mt-1 block w-full p-2 border rounded-md" required>
             <option value="">Select Song</option>
-            @foreach($songs as $songItem) <!-- Changed $song to $songItem -->
-                <option value="{{ $songItem->id }}" {{ old('song_id') == $songItem->id ? 'selected' : '' }}>
-                    {{ $songItem->name }}
+            @foreach($albums as $album) <!-- Changed $song to $songItem -->
+                <option value="{{ $album->id }}" {{ old('album_id') == $album->id ? 'selected' : '' }}>
+                    {{ $album->name }}
                 </option>
             @endforeach
         </select>

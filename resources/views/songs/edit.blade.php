@@ -16,11 +16,17 @@
                 <div class="p-6 text-gray-900">
                     <h3 class="font-semibold text-lg mb-4">Edit Song:</h3> <!-- Section title -->
 
+                    @php
+                        $song = $data['song'];
+                        $albums = $data['albums'];
+                    @endphp
+                    
                     <!-- Use the SongForm component to create the song form -->
                     <x-song-form 
                         :action="route('song.update', $song)"  
                         :method="'PUT'"  
-                        :song="$song"  
+                        :song="$song"
+                        :albums="$albums"
                     />
                 </div>
             </div>
