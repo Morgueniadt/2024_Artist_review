@@ -26,6 +26,20 @@
                         :number_of_songs="$album->number_of_songs"
                     />
 
+                    <!-- Links to External Platforms (YouTube, Spotify) -->
+                    <div class="mt-4">
+                        @if($album->youtube_link)
+                            <a href="{{ $album->youtube_link }}" target="_blank" class="bg-red-600 hover:bg-red-800 text-white font-semibold py-3 px-6 rounded-full shadow-lg inline-block mb-2 mr-2">
+                                Listen on YouTube
+                            </a>
+                        @endif
+                        @if($album->spotify_link)
+                            <a href="{{ $album->spotify_link }}" target="_blank" class="bg-green-600 hover:bg-green-800 text-white font-semibold py-3 px-6 rounded-full shadow-lg inline-block mb-2">
+                                Listen on Spotify
+                            </a>
+                        @endif
+                    </div>
+
                     <!-- Album Reviews Section -->
                     <h4 class="font-semibold text-md mt-8">Reviews</h4>
                     @if($album->reviews->isEmpty())

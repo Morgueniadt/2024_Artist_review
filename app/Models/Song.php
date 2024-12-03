@@ -10,9 +10,7 @@ class Song extends Model
     use HasFactory;  // Use HasFactory trait for factory support
 
     protected $fillable = [
-        'name',        // Song name
-        'duration',    // Song duration (e.g., '03:45:00')
-        'release_year' // Release year (e.g., 1999)
+        'name', 'image', 'release_year', 'duration', 'youtube_link', 'spotify_link',
     ];
  // Define the relationship with albums (many-to-many)
  public function albums()
@@ -24,6 +22,14 @@ class Song extends Model
 public function reviews()
 {
     return $this->hasMany(Review::class);
+}
+
+public function up()
+{
+    Schema::table('songs', function (Blueprint $table) {
+        $table->string('youtube_link')->nullable();
+        $table->string('spotify_link')->nullable();
+    });
 }
 
 }

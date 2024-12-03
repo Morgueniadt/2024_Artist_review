@@ -26,6 +26,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/EIGHTY_PROOF.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=5ndRVVRYV0M&list=OLAK5uy_ngjrm0lgrVC7-0M62LnXIcYEG82VgtM58',
+                'spotify_link' => 'https://open.spotify.com/album/41Lx4xTSfbx5xRplTOsmzP',
             ],
             [
                 'name' => 'Vol. 3: The Subliminal Verses',
@@ -35,6 +37,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Vol.3_The_Subliminal_Verses.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=HmvPyy14YbY&list=PLC80P4gsPr-a2xfqFze_U_yJNJMj6n4qP',
+                'spotify_link' => 'https://open.spotify.com/album/4ZDBQSIDIZRUBOG2OHcN3T',
             ],
             [
                 'name' => 'Made In Hell',
@@ -44,6 +48,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Made_In_Hell.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=ea8Uxm4u3yk&list=OLAK5uy_l7PCbIQ1UDV9N6is5LWsWez49XLo_KrfA',
+                'spotify_link' => 'https://open.spotify.com/album/1wrvLX5aG5vHOuZ3qXh3vs',
             ],
             [
                 'name' => 'Were Not Here To Be Loved',
@@ -53,6 +59,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Were_Not_Here_To_Be_Loved.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=wFkL2ZDp8xE&list=OLAK5uy_lOW8m7licLleyHklHlDWYjMIjdBsOYDBg',
+                'spotify_link' => 'https://open.spotify.com/album/0hm7PiBu72tRliLqLfiKy1',
             ],
             [
                 'name' => 'New World Depression',
@@ -62,6 +70,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/New_World_Depression.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=j-Z0V0BraDM&list=PLxA687tYuMWi4ysNclyI4bXlsPVzWl8Vz',
+                'spotify_link' => 'https://open.spotify.com/album/1lKWIQuLHxdlifTuudutTl',
             ],
             [
                 'name' => 'The Power of Positive Drinking',
@@ -71,6 +81,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/The_Power_of_Positive_Drinking.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=fhLBO9zasZE&list=PLjQ9_LaIy2f-yWPab9sIeP18rsZ_82WXP',
+                'spotify_link' => 'https://open.spotify.com/album/34BjpGrfhWfCemwVPlGOQ3',
             ],
             [
                 'name' => 'Venom',
@@ -80,6 +92,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Venom.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=i_t8E2vDkEc&list=PL1HxhzpGwf4DbfCo0dE5O1r8iQqc1elzM',
+                'spotify_link' => 'https://open.spotify.com/album/14hhOTLyfegr6dKjfWY7XP',
             ],
             [
                 'name' => '11th dimension',
@@ -89,6 +103,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/11th_dimension.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://i.ytimg.com/vi/TJixbD92lWY/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD5Y-WY5k5FXUUa_Chnrkee3hmB_w',
+                'spotify_link' => 'https://open.spotify.com/album/4Ioudl1Qx3fTh5AMOYRBvf',
             ],
             [
                 'name' => 'my anti-aircraft friend',
@@ -98,6 +114,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Julie.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=U_kzN8be-7A&list=PLvsYXqtYjMYcw--Gs0LfdX7xaSo-Jo4u8',
+                'spotify_link' => 'https://open.spotify.com/album/14SJbJMseOJ2W8HlWLwNgJ',
             ],
             [
                 'name' => 'Nevermind',
@@ -107,6 +125,8 @@ class ArtistSeeder extends Seeder
                 'image' => 'images/Nevermind.jpg',
                 'created_at' => $currentTimestamp,
                 'updated_at' => $currentTimestamp,
+                'youtube_link' => 'https://www.youtube.com/watch?v=E6SbPv1Fu80&list=PLMxy067kbpQjRXmNGao7pvVoFaCTIZRze',
+                'spotify_link' => 'https://open.spotify.com/album/2UJcKiJxNryhL050F5Z1Fk',
             ],
         ];
 

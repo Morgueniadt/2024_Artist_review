@@ -30,8 +30,11 @@ Schema::create('albums', function (Blueprint $table) {
     $table->year('release_year'); // Correct naming
     $table->integer('number_of_songs'); // Correct naming
     $table->string('image')->nullable(); // Add image column
+    $table->string('youtube_link')->nullable(); // Add YouTube link column
+    $table->string('spotify_link')->nullable(); // Add Spotify link column
     $table->timestamps();
 });
+
 
         /*Schema::create('songs', function (Blueprint $table) {
     $table->id();

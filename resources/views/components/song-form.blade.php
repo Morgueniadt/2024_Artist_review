@@ -5,7 +5,7 @@
     @method($method)
 @endif
 
-<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="{{ $method }}" enctype="multipart/form-data">
 
     <!-- Song Name Field -->
     <div class="mb-4">
@@ -47,18 +47,20 @@
         <input type="text" id="release_year" name="release_year" value="{{ old('release_year', $song->release_year ?? '') }}" class="mt-1 block w-full p-2 border rounded-md" required>
     </div>
 
-    <!-- Album Selection -->
-    <div class="mb-4">
-        <label for="album_id" class="block text-sm font-medium text-gray-700">Album</label>
-        <select id="album_id" name="album_id" class="mt-1 block w-full p-2 border rounded-md" required>
-            <option value="">Select Album</option>
-            @foreach($albums as $album)
-                <option value="{{ $album->id }}" {{ old('album_id', $song->album_id ?? '') == $album->id ? 'selected' : '' }}>
-                    {{ $album->name }}
-                </option>
-            @endforeach
-        </select>
-    </div>
+<!-- Album Selection -->
+<div class="mb-4">
+    <label for="album_id" class="block text-sm font-medium text-gray-700">Album</label>
+    <select id="album_id" name="album_id" class="mt-1 block w-full p-2 border rounded-md" required>
+        <option value="">Select Album</option>
+        @foreach($albums as $album)
+            <option value="{{ $album->id }}" 
+                {{ old('album_id', $song->album_id ?? '') == $album->id ? 'selected' : '' }}>
+                {{ $album->name }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
 
     <!-- Submit Button -->
     <div class="mb-4">
