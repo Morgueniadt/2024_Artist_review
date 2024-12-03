@@ -82,13 +82,19 @@
             <x-responsive-nav-link :href="route('album.index')" :active="request()->routeIs('album.index')">
                 {{ __('View All Albums') }}
             </x-responsive-nav-link>
-
+            <x-responsive-nav-link :href="route('song.index')" :active="request()->routeIs('album.index')">
+                {{ __('View All Songs') }}
+            </x-responsive-nav-link>
             <!-- Conditionally show Create New Album link only for admins -->
             @if(auth()->check() && auth()->user()->role === 'admin')
                 <x-responsive-nav-link :href="route('album.create')" :active="request()->routeIs('album.create')">
                     {{ __('Create New Album') }}
                 </x-responsive-nav-link>
+                <x-nav-link :href="route('song.create')" :active="request()->routeIs('song.create')">
+                            {{ __('Create New Song') }}
+                        </x-nav-link>
             @endif
+            
         </div>
 
         <!-- Responsive Settings Options -->
