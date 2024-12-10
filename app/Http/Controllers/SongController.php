@@ -64,6 +64,10 @@ class SongController extends Controller
      */
     public function show(Song $song)
     {
+        // Example in your controller
+        // $albums = Album::all();
+        $song->load('albums');
+
         // Return a view to display the details of the song
         return view('songs.show', compact('song'));
     }

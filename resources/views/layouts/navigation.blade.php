@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 bg-cycling">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -94,7 +94,6 @@
                             {{ __('Create New Song') }}
                         </x-nav-link>
             @endif
-            
         </div>
 
         <!-- Responsive Settings Options -->

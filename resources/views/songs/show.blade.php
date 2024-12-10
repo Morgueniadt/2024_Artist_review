@@ -19,11 +19,12 @@
 
                     <!-- Song Details Component: Passing song data to the component -->
                     <x-song-details
-                        :name="$song->name"
-                        :image="$song->image"  
-                        :release_year="$song->release_year"
-                        :duration="$song->duration"
-                    />
+                    :song="$song" 
+                :duration="$song->duration" 
+                :release_year="$song->release_year" 
+                :image="$song->image" 
+                :album="$song->album"
+                  />
 
                     <!-- Links to External Platforms (YouTube, Spotify) -->
                     <div class="mt-4">
