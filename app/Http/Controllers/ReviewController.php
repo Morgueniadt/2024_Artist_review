@@ -31,23 +31,37 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Album $album)
+    public function store(Request $request)
     {
-        // Validate the review input
-        $request->validate([
+        $validated = $request->validate([
             'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'nullable|string|max:1000',
+            'comment' => 'nullable|string',
+            'album_id' => 'nullable|exists:albums,id',
+            'song_id' => 'nullable|exists:songs,id',
         ]);
     
-        // Create the review for the album
-        $album->reviews()->create([
+        // Ensure that either album_id or song_id is filled, but not both
+        if ($request->album_id && $request->song_id) {
+            return redirect()->back()->withErrors('You can only review either an album or a song, not both.');
+        }
+    
+        if (!$request->album_id && !$request->song_id) {
+            return redirect()->back()->withErrors('You must select either an album or a song to review.');
+        }
+    
+        // Create the review
+        Review::create([
             'user_id' => auth()->id(),
-            'rating' => $request->input('rating'),
-            'comment' => $request->input('comment'),
+            'rating' => $validated['rating'],
+            'comment' => $validated['comment'], // Ensure this is being passed
+            'album_id' => $request->album_id,
+            'song_id' => $request->song_id,
         ]);
     
-        return redirect()->route('album.show', $album)->with('success', 'Review added successfully.');
+        return redirect()->route('reviews.index');
     }
+    
+    
 
     /**
      * Display the specified resource.

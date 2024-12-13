@@ -1,37 +1,33 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    use HasFactory;
-
-    // Correct the 'fillable' array by removing the duplicate 'user_id'
-    protected $fillable = [
-        'user_id',     // User who wrote the review
-        'rating',      // Rating given by the user
-        'comment',     // Optional comment for the review
-        'album_id',    // The album being reviewed
-    ];
+    protected $fillable = ['user_id', 'rating', 'comment', 'album_id', 'song_id'];
 
     /**
-     * The album that this review belongs to.
+     * Define the relationship with Album.
      */
     public function album()
     {
-        return $this->belongsTo(Album::class); // Review belongs to one album
+        return $this->belongsTo(Album::class);
     }
 
     /**
-     * The user who wrote the review.
+     * Define the relationship with Song.
      */
-// Review.php (Model)
-public function song()
-{
-    return $this->belongsTo(Song::class);
-}
+    public function song()
+    {
+        return $this->belongsTo(Song::class);
+    }
 
+    /**
+     * Define the relationship with User.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

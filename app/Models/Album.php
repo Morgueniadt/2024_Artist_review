@@ -9,14 +9,15 @@ class Album extends Model
 {
     use HasFactory;
 
+    // Fillable attributes for mass assignment
     protected $fillable = [
         'name',
         'duration',
         'number_of_songs',
         'year',
         'image',
-        'youtube_link',  // Added youtube_link to fillable array
-        'spotify_link',  // Added spotify_link to fillable array
+        'youtube_link',
+        'spotify_link',
         'created_at',
         'updated_at',
     ];
@@ -26,8 +27,8 @@ class Album extends Model
      */
     public function songs()
     {
-        // Assuming many-to-many relationship
-        return $this->belongsToMany(Song::class);
+        // Assuming the pivot table name is 'album_song', update if necessary
+        return $this->belongsToMany(Song::class, 'album_song');
     }
 
     /**

@@ -78,7 +78,7 @@ class AlbumController extends Controller
     {
         // Pass the specific album to the view 'albums.show'
         return view('albums.show', compact('album'));
-        $book->load('review.user');
+        $album->load('review.user');
         return view('albums.show', compact('album'));
     }
 
